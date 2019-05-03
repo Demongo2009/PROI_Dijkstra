@@ -3,15 +3,16 @@
 
 template <class T>
 class Node{
-  T nodeContents;
+  T* nodeContents;
   uint index;
   std::vector<Edge> edges;
+  bool visited=false;
 public:
-  Node();
+  Node(T* nodeContents, uint index);
   ~Node();
   std::vector<Node> getAdjacentNodes();
   std::vector<Edge> getEdges();
-  void addEdge();
+  void addEdge(Edge edge);
   uint getIndex();
 };
 
