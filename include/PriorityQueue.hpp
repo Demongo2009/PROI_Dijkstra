@@ -2,19 +2,26 @@
 #define PRIORITY_QUEUE_HPP
 
 
-class PriorityQueue{
-  Node** priorityQueue;
+typedef unsigned int uint;
+
+template <class T>
+class MinPriorityQueue{
+  PriorityDummy<T>* priorityQueueArray;
+  uint length=0;
+  uint capacity=0;
 public:
-  Node extractMinimum(Node priorityQueue[]);
-  bool decreaseElementValue(Node priorityQueue[], int index, int toValue);
-  bool insertElement(Node priorityQueue[], Node element);
-  void deleteElement(Node priorityQueue[], int index);
-  bool isEmpty(Node priorityQueue[]);
-  void minHeapify(int index);
-  bool isSmallerNodes(Node fst, Node snd);
-  void swap(int fstIndex, int sndIndex);
-  void setValue(Node node,int value);
-  int getValue(Node node);
+  MinPriorityQueue();
+  ~MinPriorityQueue();
+  PriorityDummy<T>* extractMinimum<T>();
+  bool decreaseDummyPriority<T>(uint index, uint toPriority);
+  bool insertDummy<T>(PriorityDummy<T> dummy);
+  void deleteDummy(uint index);
+  bool isEmpty();
+  void minHeapify<T>(uint index);
+  bool isSmallerPriority(uint fstIndex, uint sndIndex);
+  void swap<T>(uint fstIndex, uint sndIndex);
+  void setPriority(uint index,uint priority);
+  uint getPriroity(uint index);
 };
 
 
