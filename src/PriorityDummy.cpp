@@ -1,26 +1,41 @@
 #include <iostream>
-#include <stdio>
+#include <typeinfo>
 
-#include "../include/PriorityDummy.hpp"
 
-template <T>
-PriorityDummy::PriorityDummy(T element){
+#include "../include/PriorityDummy.h"
+
+template <class T>
+PriorityDummy<T>::PriorityDummy(T element){
   elementPtr=&element;
 }
+template
+PriorityDummy<int>::PriorityDummy(int element);
 
-
-PriorityDummy::~PriorityDummy(){
+template <class T>
+PriorityDummy<T>::PriorityDummy(T element, uint priorityInput){
+  priority = priorityInput;
+  elementPtr=&element;
 }
+template
+PriorityDummy<int>::PriorityDummy(int element, uint priority);
 
-void PriorityDummy::setPriority(uint newPriority){
+template <class T>
+void PriorityDummy<T>::setPriority(uint newPriority){
   priority= newPriority;
 }
+template
+void PriorityDummy<int>::setPriority(uint newPriority);
 
-uint PriorityDummy::getPriority(){
+template <class T>
+uint PriorityDummy<T>::getPriority(){
   return priority;
 }
+template
+uint PriorityDummy<int>::getPriority();
 
-template <T>
-T PriorityDummy::getElement(){
+template <class T>
+T PriorityDummy<T>::getElement(){
   return *elementPtr;
 }
+template
+int PriorityDummy<int>::getElement();

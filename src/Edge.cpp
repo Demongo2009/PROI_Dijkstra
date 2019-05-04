@@ -1,35 +1,44 @@
 #include <iostream>
-#include <stdio>
-
-#include "../include/Edge.hpp"
+#include <typeinfo>
 
 
-Edge::Edge(Node startNode){
-  startNodePtr = &startNode;
-}
+#include "../include/Edge.h"
 
-Edge::Edge(Node startNode, Node endNode){
+
+template <class T>
+Edge<T>::Edge(Node<T> startNode, Node<T> endNode){
   startNodePtr = &startNode;
   endNodePtr = &endNode;
 }
+template
+Edge<int>::Edge(Node<int> startNode, Node<int> endNode);
 
-Edge::Edge(Node& startNode, Node& endNode, uint distance){
+template <class T>
+Edge<T>::Edge(Node<T>& startNode, Node<T>& endNode, uint distanceInput){
   startNodePtr = startNode;
   endNodePtr = endNode;
-  distance = distance;
+  distance = distanceInput;
 }
+template
+Edge<int>::Edge(Node<int>& startNode, Node<int>& endNode, uint distanceInput);
 
-Edge::~Edge(){
-}
-
-Node Edge::getStartNode(){
+template <class T>
+Node<T> Edge<T>::getStartNode(){
   return *startNodePtr;
 }
+template
+Node<int> Edge<int>::getStartNode();
 
-Node Edge::getEndNode(){
+template <class T>
+Node<T> Edge<T>::getEndNode(){
   return *endNodePtr;
 }
+template
+Node<int> Edge<int>::getEndNode();
 
-uint Edge::getDistance(){
+template <class T>
+uint Edge<T>::getDistance(){
   return distance;
 }
+template
+uint Edge<int>::getDistance();
