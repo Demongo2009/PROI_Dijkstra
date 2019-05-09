@@ -9,8 +9,14 @@ OBJECTS = Main.o
 $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS)  build/Main.o -o bin/$(TARGET)
 
+test: Tests.o
+	$(CC) $(CFLAGS)  test/Tests.o -o test/test
+
 Main.o: include/Graph.h include/MinPriorityQueue.h include/DijkstraManager.h include/Path.h include/Edge.h include/Node.h include/PriorityDummy.h
 	$(CC) $(CFLAGS) -c src/Main.cpp -o build/Main.o
+
+Tests.o: include/Graph.h include/MinPriorityQueue.h include/DijkstraManager.h include/Path.h include/Edge.h include/Node.h include/PriorityDummy.h
+	$(CC) $(CFLAGS) -c test/Tests.cpp -o test/Tests.o
 
 # DijkstraManager.o: include/DijkstraManager.h include/Graph.h include/Path.h include/MinPriorityQueue.h
 # 	$(CC) $(CFLAGS) -c src/DijkstraManager.cpp -o build/DijkstraManager.o
@@ -36,3 +42,4 @@ Main.o: include/Graph.h include/MinPriorityQueue.h include/DijkstraManager.h inc
 .PHONY:clean
 clean:
 	-rm build/*.o
+	-rm bin/main
