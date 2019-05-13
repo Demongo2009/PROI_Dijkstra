@@ -11,26 +11,26 @@ class Edge;
 
 template <class T>
 class Node{
-	T* nodeContents;
-	uint index;
-	std::vector<Edge<T>> edges;
-	bool visited=false;
-	bool inQueue=false;
-	Node* parentNode=nullptr;
+	T* nodeContents; // contents of node
+	uint index; // index of node
+	std::vector<Edge<T>> edges; // vector of edges
+	bool visited=false; // is visited
+	bool inQueue=false; // is in queue
+	Node* parentNode=nullptr; // pointer to parent node
 public:
-	Node(T* nodeContents, uint index);
+	Node(T* nodeContents, uint index); // constructor
 //	std::vector<Node> getAdjacentNodes();
-	std::vector<Edge<T>> getEdges();
-	void addEdge(Edge<T> edge);
-	uint getIndex();
-	void setContents(T* contents);
-	T* getContents();
-	bool isVisited();
-	void setVisited(bool b);
-	void setInQueue(bool b);
-	bool isInQueue();
-	void setParentNode(Node* parentNode);
-	Node* getParentNode();
+	std::vector<Edge<T>> getEdges(); // returns vector of edges
+	void addEdge(Edge<T> edge); // adds edge
+	uint getIndex(); // returns index
+	void setContents(T* contents); // sets contents
+	T* getContents(); // returns contents
+	bool isVisited(); // checks if node is visited
+	void setVisited(bool b); // sets visited
+	void setInQueue(bool b); // sets inQueue
+	bool isInQueue(); //checks if node is in queue
+	void setParentNode(Node* parentNode); // sets parent node of node
+	Node* getParentNode(); // returns parent node
 };
 
 template <class T>

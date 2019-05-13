@@ -10,24 +10,24 @@ typedef unsigned int uint;
 
 template <class T>
 class MinPriorityQueue{
-	std::vector<PriorityDummy<T>*> dummyArray;
-	uint length=0;
+	std::vector<PriorityDummy<T>*> dummyArray; // vector of pointers on dummys
+	uint length=0; // length of array
 public:
-	MinPriorityQueue();
-	~MinPriorityQueue();
-	PriorityDummy<T>* extractMinimum();
-	void decreaseDummyPriority(uint index, uint toPriority);
-	void insertDummy(PriorityDummy<T>* dummy);
-	void insertNode(Node<T>* node,uint priority);
-	void deleteDummy(uint index);
-	bool isEmpty();
-	void minHeapify(uint index);
-	bool isSmallerPriority(uint fstIndex, uint sndIndex);
-	void swap(uint fstIndex, uint sndIndex);
-	void setPriority(uint index,uint priority);
-	uint getPriority(uint index);
-	PriorityDummy<T>* searchForDummy(Node<T>* node);
-	uint getDummyIndex(PriorityDummy<T> dummy);
+	MinPriorityQueue(); // constructor
+	~MinPriorityQueue(); // destructor
+	PriorityDummy<T>* extractMinimum(); // returns minimum and preserves heap structure
+	void decreaseDummyPriority(uint index, uint toPriority); // decreases dummy priority and preserves heap structure
+	void insertDummy(PriorityDummy<T>* dummy); // insterts dummy and preserves heap structure
+	void insertNode(Node<T>* node,uint priority); // inserts dummy and preserves heap structure
+	void deleteDummy(uint index); // deletes dummy
+	bool isEmpty(); //checks if array is empty
+	void minHeapify(uint index); // returns heap structure from index
+	bool isSmallerPriority(uint fstIndex, uint sndIndex); // checks fst has smaller priority than snd
+	void swap(uint fstIndex, uint sndIndex); // swaps dummys under indexes
+	void setPriority(uint index,uint priority); // sets priority of index
+	uint getPriority(uint index); // returns priority of index
+	PriorityDummy<T>* searchForDummy(Node<T>* node); // searches for dummy with node
+	uint getDummyIndex(PriorityDummy<T> dummy); // returns dummy index
 };
 
 template <class T>
@@ -45,7 +45,7 @@ MinPriorityQueue<T>::~MinPriorityQueue(){
 
 
 
-// gives minimum which is top of queue element,
+// gives minimum which is top of queue element
 template <class T>
 PriorityDummy<T>* MinPriorityQueue<T>::extractMinimum(){
 	if(length == 0){
@@ -62,8 +62,8 @@ PriorityDummy<T>* MinPriorityQueue<T>::extractMinimum(){
 
 
 
-// porownoje synow z ojcem jezeli dziecko jest mniejsze to zamienia je z ojcem
-// i wykonuje algorytm jeszcze raz
+
+// compares children with parent, if child is smaller then swaps it with parent and does algorithm once again
 template <class T>
 void MinPriorityQueue<T>::minHeapify(uint index){
 	uint leftChildIndex = 2*index;
@@ -91,9 +91,8 @@ void MinPriorityQueue<T>::swap(uint fstIndex, uint sndIndex){
 }
 
 
-// ustawia priorytet pod indeksem index po czym sprawdza czy jest on
-// mniejszy od ojca, jesli tak to zamienia miejscami, tak dlugo az
-// struktura heap zostanie przywrocona
+
+// sets priority of index then checks if it is smaller then parrent if yes than changes places, until smaller heap is restored
 template <class T>
 void MinPriorityQueue<T>::decreaseDummyPriority(uint index, uint toValue){
 	setPriority(index, toValue);
@@ -106,10 +105,9 @@ void MinPriorityQueue<T>::decreaseDummyPriority(uint index, uint toValue){
 }
 
 
-// uzywajac decreaseDummyPriority wstawia dummy do struktury
-// wstawia go na koniec zmienia jego priorytet na maxymalny,
-// po czym zmienia go poprzez decreaseDummyPriority dzieki czemu
-// struktura jest zachowana
+
+
+// using decreaseDummy Priority inserts dummy into structure in the end and sets its priority to max then changes it so structure is preserved
 template <class T>
 void MinPriorityQueue<T>::insertDummy(PriorityDummy<T>* dummy){
 	++length;

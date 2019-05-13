@@ -8,18 +8,18 @@ typedef unsigned int uint;
 
 template <class T>
 class PriorityDummy{
-	uint priority=MAX_PRIORITY;
-	Node<T>* nodePtr=nullptr;
+	uint priority=MAX_PRIORITY; // priority initially set to max
+	Node<T>* nodePtr=nullptr; // pointer on node
 public:
-	PriorityDummy(T element);
-	PriorityDummy(uint priority):priority(priority){};
-	PriorityDummy(Node<T>* nodePtr):nodePtr(nodePtr){};
-	PriorityDummy(T element, uint priority);
-	PriorityDummy(Node<T>* node, uint priority);
-	~PriorityDummy();
-	void setPriority(uint newPriority);
-	uint getPriority();
-	Node<T>* getNode();
+	PriorityDummy(T element); // constructor
+	PriorityDummy(uint priority):priority(priority){}; // constructor
+	PriorityDummy(Node<T>* nodePtr):nodePtr(nodePtr){}; // constructor
+	PriorityDummy(T element, uint priority); // constructor
+	PriorityDummy(Node<T>* node, uint priority); // constructor
+	~PriorityDummy(); // destructor
+	void setPriority(uint newPriority); // sets priority
+	uint getPriority(); // returns priority
+	Node<T>* getNode(); // returns pointed to node
 };
 
 template <class T>

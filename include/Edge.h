@@ -9,15 +9,15 @@ class Node;
 
 template <class T>
 class Edge{
-	Node<T>* startNodePtr=nullptr;
-	Node<T>* endNodePtr=nullptr;
-	uint distance=MAX_DISTANCE;
+	Node<T>* startNodePtr=nullptr; // start node pointer
+	Node<T>* endNodePtr=nullptr; // end node pointer
+	uint distance=MAX_DISTANCE; // distance set initially to max
 public:
-	Edge(Node<T>* startNode, Node<T>* endNode);
-	Edge(Node<T>* startNode, Node<T>* endNode, uint distance);
-	Node<T>* getStartNode();
-	Node<T>* getEndNode();
-	uint getDistance();
+	Edge(Node<T>* startNode, Node<T>* endNode); //constructor without distance
+	Edge(Node<T>* startNode, Node<T>* endNode, uint distance); // constructor with distance
+	Node<T>* getStartNode(); // returns pointer on start node
+	Node<T>* getEndNode(); // returns pointer on end node
+	uint getDistance(); // returns distance
 };
 
 template <class T>

@@ -8,12 +8,12 @@ typedef unsigned int uint;
 
 template <class T>
 class Graph{
-	std::vector<Node<T>*> nodeVector;
-	int numOfNodes=0;
+	std::vector<Node<T>*> nodeVector; // vector of pointers on nodes
+	int numOfNodes=0; // number of nodes
 public:
-	void addNode(T* nodeContents);
-	bool addEdge(uint fstIndex, uint sndIndex, uint distance);
-	std::vector<Node<T>*> getNodes();
+	void addNode(T* nodeContents); // adds node with contents
+	bool addEdge(uint fstIndex, uint sndIndex, uint distance); // adds edge given indexes and distance
+	std::vector<Node<T>*> getNodes(); //returns vector of pointers on nodes
 };
 
 template <typename T>

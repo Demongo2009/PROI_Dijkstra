@@ -6,11 +6,11 @@
 
 template <class T>
 class Path{
-	std::vector<Node<T>*> nodes;
+	std::vector<Node<T>*> nodes; // path of nodes form start to end
 public:
-	Path(Node<T>* nodePtr);
-	void addNode(Node<T>* nodePtr);
-	std::string toString();
+	Path(Node<T>* nodePtr); //constructor
+	void addNode(Node<T>* nodePtr); //adds node
+	std::string toString(); // converts path to string
 };
 
 
